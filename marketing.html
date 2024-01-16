@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html  lang="fr">
+<html lang="fr">
 
 <head>
     <title>Legumistar</title>
@@ -15,18 +15,89 @@
     <meta name="color-scheme" content="light primary" />
 
     <!-- tabler css framework -->
-    <link rel="stylesheet" href="/css/tabler.css">
+    <link rel="stylesheet" href="./css/tabler.css">
 
     <!-- CSS -->
 
     <!-- tabler JS -->
-    <script src="/tabler/tabler.js"></script>
+    <script src="./js/tabler.js"></script>
 
 </head>
 
-<body>
+<body class="d-flex flex-column vw-100" style="overflow-x: hidden;">
+    <header class="navbar navbar-expand-md  d-print-none" data-bs-theme="dark" style="margin-bottom: 2em;">
+        <div class="container-xl">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu"
+                aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <h1 class="navbar-brand navbar-brand-autodark cursor-pointer" onclick="window.location='./index.html'"
+                style="margin-right:4%">
+                <img src="./icons/carrot-fontawesome-icon.svg" width="50" height="50" alt="LegumiStar"
+                    class="navbar-brand-image">
+            </h1>
 
-    <!-- Contenu -->
+
+            <div class="collapse navbar-collapse" id="navbar-menu">
+                <div class="d-flex flex-column flex-md-row flex-fill row align-items-center">
+                    <ul class="navbar-nav col">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./marketing.html">
+                                <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                    <i class="si-tools fs-1"></i>
+                                </span>
+                                <span class="nav-link-title">
+                                    Marketing
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./analyse.html">
+                                <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                    <i class="si-tools fs-1"></i>
+                                </span>
+                                <span class="nav-link-title">
+                                    Analyse
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./technic.html">
+                                <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                    <i class="si-tools fs-1"></i>
+                                </span>
+                                <span class="nav-link-title">
+                                    Technique
+                                </span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container w-75">
+        <h1>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-report-analytics"
+                style="width: 30px !important;height:30px !important;margin-right:0.5em" viewBox="0 0 24 24"
+                stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+                <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                <path d="M9 17v-5" />
+                <path d="M12 17v-1" />
+                <path d="M15 17v-3" />
+            </svg>
+
+            Marketing
+        </h1>
+        <p>
+            Lorem ipsum a vous de remplir
+        </p>
+    </div>
+
 
 </body>
 
