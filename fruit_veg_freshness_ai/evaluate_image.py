@@ -37,6 +37,6 @@ def evaluate_rotten_vs_fresh(image_path):
 
 
 # Example usage:
-# img_path = '/home/youssef/Downloads/freshapple.jpeg'
+# img_path = './img/image.png'
 # is_rotten = evaluate_rotten_vs_fresh(img_path)
 # print(f'Prediction: {is_rotten}',print_fresh(is_rotten))

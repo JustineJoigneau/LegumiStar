@@ -43,6 +43,7 @@ def init_photo():
 
     nom_fichier_photo = "img/photo_" + str(time_now) + ".jpg"
     prendre_photo(nom_fichier_photo)
+    print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
     is_rotten = evaluate_image.evaluate_rotten_vs_fresh(nom_fichier_photo)
     print(f'Prediction: {is_rotten}', evaluate_image.print_fresh(is_rotten))
 
