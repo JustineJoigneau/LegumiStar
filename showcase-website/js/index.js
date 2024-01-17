@@ -96,10 +96,23 @@ function buildOpinionCards() {
         h3.className = 'card-title';
         h3.textContent = opinion.name;
         var containerStars = document.createElement('div');
-        for (let i = 0; i < opinion.fullStar.length; i++) {
+        console.log(opinion.fullStar)
+        for (let i = 0; i < opinion.fullStar; i++) {
             var img = document.createElement('img');
             img.src = starsData[0].src;
             img.alt = starsData[0].alt;
+            containerStars.appendChild(img);
+        }
+        for (let i = 0; i < opinion.midStar; i++) {
+            var img = document.createElement('img');
+            img.src = starsData[1].src;
+            img.alt = starsData[1].alt;
+            containerStars.appendChild(img);
+        }
+        for (let i = 0; i < opinion.emptyStar; i++) {
+            var img = document.createElement('img');
+            img.src = starsData[2].src;
+            img.alt = starsData[2].alt;
             containerStars.appendChild(img);
         }
         h3.appendChild(containerStars);
