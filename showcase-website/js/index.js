@@ -7,8 +7,43 @@ var artistsData = [
     { id: 5, name: "Zoé", edition: 2031, srcImage: "./img/banana-without-bg.png" },
 ];
 
+var starsData = [
+    { id: 0, src: "./icons/star-solid.svg", alt: "star-full" },
+    { id: 1, src: "./icons/star-half-stroke-regular.svg", alt: "star-mid" },
+    { id: 2, src: "./icons/star-regular.svg", alt: "star-empty" },
+];
+
 var opinionsData = [
-    { id: 0, name: "M., fan de Patrick Otato" }
+    {
+        id: 0,
+        name: "M., fan de Patrick Otato",
+        comment: "g pa pu voire la cène... Tro naze...",
+        fullStar: 2, midStar: 0, emptyStar: 3,
+    },
+    {
+        id: 1,
+        name: "T., rageux",
+        comment: "Moz'Poire est mort pour cela ! L'original se retourne dans sa tombe... >-(",
+        fullStar: 1, midStar: 0, emptyStar: 4,
+    },
+    {
+        id: 2,
+        name: "H.",
+        comment: "Franchement, étant sourde, je n'ai pas tout compris, mais en tout cas il y avait une super ambiance! A bon entendeur, Michelle du Nord- Pas - de - Calais",
+        fullStar: 4, midStar: 0, emptyStar: 1,
+    },
+    {
+        id: 3,
+        name: "Anonyme",
+        comment: "A méditez.",
+        fullStar: 2, midStar: 1, emptyStar: 2,
+    },
+    {
+        id: 4,
+        name: "B., hyper-méga-fan de Jean-Michel Poire",
+        comment: "mOI J4AI TROP AIM2 MERCI A TOUS !!",
+        fullStar: 5, midStar: 0, emptyStar: 0,
+    },
 ];
 
 function buildCardsInCarousel() {
@@ -50,9 +85,38 @@ function buildIndicatorsCarousel() {
     });
 }
 
+function buildOpinionCards() {
+    var opinionHomepageContainer = document.getElementById('opinion-homepage-container');
+    opinionsData.forEach(function (opinion, index) {
+        var cardItem = document.createElement('div');
+        cardItem.className = 'card opinion-homepage-card';
+        var cardBody = document.createElement('div');
+        cardBody.className = 'card-body';
+        var h3 = document.createElement('h3');
+        h3.className = 'card-body';
+        h3.textContent = opinion.name;
+        var containerStars = document.createElement('div');
+        for (let i = 0; i < opinion.fullStar.length; i++) {
+            var img = document.createElement('img');
+            img.src = starsData[0].src;
+            img.alt = starsData[0].alt;
+            containerStars.appendChild(img);
+        }
+        h3.appendChild(containerStars);
+        var comment = document.createElement('p');
+        comment.className = 'text-secondary';
+        comment.textContent = opinion.comment;
+        cardBody.appendChild(h3);
+        cardBody.appendChild(comment);
+        cardItem.appendChild(cardBody);
+        opinionHomepageContainer.appendChild(cardItem);
+    });
+}
+
 function buildIndexJs() {
     buildCardsInCarousel();
     buildIndicatorsCarousel();
+    buildOpinionCards();
 }
 
 document.addEventListener('DOMContentLoaded', buildIndexJs);
