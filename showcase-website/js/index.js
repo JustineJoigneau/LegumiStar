@@ -29,7 +29,7 @@ var opinionsData = [
     {
         id: 2,
         name: "H.",
-        comment: "Franchement, étant sourde, je n'ai pas tout compris, mais en tout cas il y avait une super ambiance! A bon entendeur, Michelle du Nord- Pas - de - Calais",
+        comment: "Franchement, étant sourde, je n'ai pas tout compris, mais en tout cas il y avait une super ambiance! A bon entendeur, Michelle du Nord-Pas-de-Calais",
         fullStar: 4, midStar: 0, emptyStar: 1,
     },
     {
@@ -93,7 +93,7 @@ function buildOpinionCards() {
         var cardBody = document.createElement('div');
         cardBody.className = 'card-body';
         var h3 = document.createElement('h3');
-        h3.className = 'card-body';
+        h3.className = 'card-title';
         h3.textContent = opinion.name;
         var containerStars = document.createElement('div');
         for (let i = 0; i < opinion.fullStar.length; i++) {
