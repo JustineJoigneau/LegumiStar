@@ -1,0 +1,65 @@
+body {
+    overflow-x: hidden; 
+    padding-bottom: 50px;
+}
+
+#title-homepage {
+    display: flex; 
+    justify-content: center;
+}
+
+#presentation-homepage-container {
+    display: flex; 
+    margin-bottom: 40px;
+}
+
+#left-presentation-homepage {
+    background-color: #9bf5a3; 
+    display: flex; 
+    align-items: center; 
+    border-radius: 20px 0 0 20px; 
+    padding: 5px 0 0 10px;
+}
+
+#img-presentation-homepage {
+    background: linear-gradient(90deg, rgba(155,245,163,1) 0%, rgba(155,245,163,1) 44%, rgba(252,200,165,1) 56%, rgba(252,200,165,1) 100%);
+}
+
+#right-presentation-homepage {
+    background-color: #fcc8a5; 
+    display: flex; 
+    align-items: center; 
+    border-radius: 0 20px 20px 0; 
+    padding: 5px 0 0 10px;
+}
+
+#carousel-homepage-container {
+    margin-bottom: 2em;
+}
+
+#carousel-homepage-inner {
+    height: 530px;
+}
+
+#carousel-homepage-inner img {
+    height: 530px; 
+    width: auto; 
+    display: block; 
+    margin: auto;
+}
+
+#opinion-homepage-container {
+    margin-top: 50px; 
+    margin-left: 5vw; 
+    margin-right: 5vw; 
+    display: flex; 
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 50px;
+}
+
+#opinion-homepage-container .opinion-homepage-card {
+    width: 300px; 
+    height: 200px;
+}
