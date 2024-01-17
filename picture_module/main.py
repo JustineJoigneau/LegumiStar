@@ -1,8 +1,11 @@
-# pip install opencv-python
-
 import cv2
 from datetime import datetime
 import keyboard
+import sys
+sys.path.append('..')  # Ajoute le dossier parent au chemin de recherche des modules
+
+from fruit_veg_freshness_ai import evaluate_image
+
 
 
 def prendre_photo(nom_fichier):
@@ -43,6 +46,9 @@ def init_photo():
 
     nom_fichier_photo = "img/photo_" + str(time_now) + ".jpg"
     prendre_photo(nom_fichier_photo)
+    is_rotten = evaluate_image.evaluate_rotten_vs_fresh(nom_fichier_photo)
+    print(f'Prediction: {is_rotten}', evaluate_image.print_fresh(is_rotten))
+
 
 
 if __name__ == "__main__":
