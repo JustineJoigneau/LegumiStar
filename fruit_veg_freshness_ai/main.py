@@ -34,7 +34,8 @@ def init_photo():
     prendre_photo(nom_fichier_photo)
     is_rotten = evaluate_image.evaluate_rotten_vs_fresh(nom_fichier_photo)
     print(f'Prediction: {is_rotten}', evaluate_image.print_fresh(is_rotten))
-
+    name_fruit = evaluate_image.evaluate_name(nom_fichier_photo)
+    print('Prediction: %s' %name_fruit)
 
 
 if __name__ == "__main__":
