@@ -1,0 +1,35 @@
+#body-marketing {
+    overflow-x: hidden;
+}
+
+#body-analyse {
+    overflow-x: hidden;
+}
+
+.left-paragraph-marketing-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 40px;
+}
+
+.left-paragraph-marketing-container .left-paragraph-marketing {
+    background-color: #bde1e2;
+    border-radius: 20px;
+    padding: 10px 15px 5px 15px;
+}
+
+.left-paragraph-marketing-container .left-paragraph-marketing p {
+    font-weight: bold;
+}
+
+.right-paragraph-marketing-container {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 40px;
+}
+
+.right-paragraph-marketing-container .right-paragraph-marketing {
+    background-color: #9bf5a3;
+    border-radius: 20px;
+    padding: 10px 15px 5px 15px;
+}
