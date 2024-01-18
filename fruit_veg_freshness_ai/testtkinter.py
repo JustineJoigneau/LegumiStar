@@ -1,28 +1,11 @@
 import tkinter as tk
+from tkinter import filedialog as fd
 import cv2
 from PIL import ImageTk, Image
+import evaluate_image
+
 
 selected_webcam = 0
-
-def select_webcam():
-    for i in range(3):
-        capture = cv2.VideoCapture(i)
-        _, image = capture.read()
-        cv2.imwrite("img/testcam" + str(i) , image)
-        capture.release()
-        img2 = ImageTk.PhotoImage(Image.open("img/testcam" + str(i) + ".jpg"))
-        panel.configure(image=img2)
-        panel.image = img2
-
-        #afficher les 3 photos avec un bouton a coté de chacun avec les fonctions cami pour chaque bouton
-def Cam1():
-    return 1
-
-def Cam2():
-    return 2
-
-def Cam3():
-    return 3
 
 def prendre_photo(nom_fichier):
     # Initialiser la capture vidéo
@@ -39,12 +22,16 @@ def prendre_photo(nom_fichier):
 
     print(f"Photo enregistrée sous {nom_fichier}")
 
+
+
 def init_photo():
     nom_fichier_photo = "img/photo_" + "test" + ".jpg"
     prendre_photo(nom_fichier_photo)
-    print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+    is_rotten = evaluate_image.evaluate_rotten_vs_fresh(nom_fichier_photo)
+    print(f'Prediction: {is_rotten}', evaluate_image.print_fresh(is_rotten))
 
-def handle_click(event):
+
+def handle_click_photo(event):
     init_photo()
 
     img2 = ImageTk.PhotoImage(Image.open("img/photo_test.jpg"))
@@ -52,6 +39,15 @@ def handle_click(event):
     panel.image = img2
 
     window.update()
+
+def handle_click_csv(event):
+    filetypes = (
+        ('csv files', '*.csv'),
+    )
+    filename = fd.askopenfilename(title='Open a file',
+        initialdir='.',
+        filetypes=filetypes )
+    print(filename)
 
 print("Program started")
 
@@ -78,7 +74,8 @@ buttonTP = tk.Button(text="Take Picture")
 buttonFLC = tk.Button(text="Faites le chanter")
 
 
-buttonTP.bind("<Button-1>", handle_click)
+buttonTP.bind("<Button-1>", handle_click_photo)
+buttonCSV.bind("<Button-1>", handle_click_csv)
 
 buttonCSV.pack()
 buttonTP.pack()

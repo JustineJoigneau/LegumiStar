@@ -23,20 +23,6 @@ def prendre_photo(nom_fichier):
 
     print(f"Photo enregistrée sous {nom_fichier}")
 
-def traiter_image(nom_fichier):
-    # Charger l'image depuis le fichier
-    image = cv2.imread(nom_fichier)
-
-    # Appliquer un traitement d'image (par exemple, convertir en niveaux de gris)
-    image_traitee = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-
-    # Enregistrer l'image traitée
-    nom_fichier_traite = "img/image_traitee.jpg"
-    cv2.imwrite(nom_fichier_traite, image_traitee)
-
-    print(f"Image traitée enregistrée sous {nom_fichier_traite}")
-
-
 
 def init_photo():
     
@@ -46,7 +32,6 @@ def init_photo():
 
     nom_fichier_photo = "img/photo_" + str(time_now) + ".jpg"
     prendre_photo(nom_fichier_photo)
-    print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
     is_rotten = evaluate_image.evaluate_rotten_vs_fresh(nom_fichier_photo)
     print(f'Prediction: {is_rotten}', evaluate_image.print_fresh(is_rotten))
 
