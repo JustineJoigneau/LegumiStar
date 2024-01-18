@@ -20,6 +20,9 @@ Afin de faire ***"chanter le légume"***, nous avons sélectionné des chansons 
 
 Afin de suivre le fil conducteur de notre projet, une téléréalité sur des fruits, on a voulu montrer l'aspect superficiel des star systems de téléréalité, leur objectif étant de faire de l'audimat, nous avons décidé que les légumes jugés **"jolis"** produiraient des meilleures chansons que les légumes **"moches"**. En ce sens, nous avons jugé nécessaire l'utilisation de modèles d'apprentissage. 
 Le premier modèle permet dans un premier temps de reconnaître le légume "en train de chanter" à partir d'une image. Ensuite, un autre modèle permet quant à lui de déterminer si un légume est pourri, donc considéré comme moche, ou bien s'il est jugé beau, toujours à partir d'une image. 
+Nos modèles ont suivi le schéma suivant : 
+![Diagramme pour représenter le traavail fait sur les IA](https://github.com/Phoenesis/LegumiStar/assets/102919545/62f1f58c-b7f7-41c4-934e-63f76b76082c).
+A la fin du processus décrit dans le diagramme, les modèles sont capables de nous donner une prédiction sur les photos qu'on leur envoie.
 
 ### Produit final
 
