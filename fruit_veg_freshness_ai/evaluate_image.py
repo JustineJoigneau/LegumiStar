@@ -10,11 +10,9 @@ def print_fresh(res):
     threshold_fresh = 0.50
     threshold_medium = 0.7
     if res < threshold_fresh:
-        print("It is fresh!")
-    elif threshold_fresh < res < threshold_medium:
-        print("It is medium fresh")
+        return "fresh"
     else:
-        print("It is not fresh")
+        return "not_fresh"
 
 
 def pre_proc_img(image_path):
