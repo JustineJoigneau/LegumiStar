@@ -1,5 +1,32 @@
 ﻿# LegumiStar
 
+## Documentation technique 
+
+### Récupération physique des données
+
+Tout d'abord, une onde sinusoïdale est envoyée à travers un légume. A l'aide d'un oscilloscope, un signal sinusoïdale bruité par le légume est récupéré à ses bornes. Celui-ci est ensuite enregistré via une clé USB.
+
+### Utilisation du programme soundProcessing.py
+
+A partir du signal bruité, les 88 notes de piano, que nous avons précédemment récupérées, sont modifiées et mixées avec un certain ratio compris entre **0** et **1**. Plus ce ratio se rapproche de 1 et moins la note de piano est modifiée par le bruit produit par le légume. 
+Le signal bruité est tout d'abord récupéré au format *.csv*, avant d'être transformé en fichier *.wav*. Les notes du piano sont ensuite traitées au format *mp3*.
+
+### Utilisation des notes de piano modifiées par le légume
+
+Afin de faire ***"chanter le légume"***, nous avons sélectionné des chansons exclusivement composées de notes de piano, au format *MIDI* (Musical Instrument Digital Interface), qui permet notamment de gérer la musique avec les notes qui la composent. Dans notre programme, nous rassemblons les notes contenues dans la musique souhaitée, et les remplaçons par celles qui ont précédemment été modifiées par le légume. Pour arriver à ce résulat et d'un point de vue technique, les notes modifiées qui composent la musique doivent tout d'abord être rassemblées dans un fichier d'extension *SF2* (SoundFont2), afin d'être par la suite gérées au format *MIDI*.Ce fichier au format *MIDI* constitue alors la nouvelle version de la chanson modifiée, celle ***chantée par le légume!***
+
+### Utilisation d'IA
+
+Afin de suivre le fil conducteur de notre projet et sa satire générale de la société, nous avons décidé que les légumes jugés **"jolis"** produiraient des meilleures chansons que les légumes **"moches"**. En ce sens, nous avons jugé nécessaire l'utilisation de modèles d'apprentisage. 
+Le premier modèle permet dans un premier temps de reconnaître le légume "en train de chanter" à partir d'une image. Ensuite, un autre modèle permet quant à lui de déterminer si un légume est pourri, donc considéré comme moche, ou bien s'il est jugé beau, toujours à partir d'une image. 
+
+### Produit final
+
+Toutes ces différentes parties sont liées par une interface graphique, développée à l'aide de **Tkinter**. Celle-ci permet à l'aide d'un menu déroulant de choisir la musique désirée, parmi celles disponibles. L'interface permet également de gérer et mixer la chanson sélectionnée, en fonction du légume qui "chante". Celui-ci est reconnu et détecté grâce à l'IA précédemment décrite, à l'aide de la caméra d'un smartphone. En effet, via le logiciel **IVCam**, la caméra du smartphone est simulée comme étant la webcam de l'ordinateur. Enfin, grâce au deuxième modèle d'apprentissage, si le légume chanteur est considéré comme "moche", alors le ratio utilisé pour modifier les notes de la chanson sera bas,et donc la musique dégradée.
+
+
+
+
 ![SetupDiagram](https://github.com/JustineJoigneau/LegumiStar/assets/23200652/da9602f7-1198-4488-b1d2-ef1f048d09a3)
 
 ![diagrammeSonore](https://github.com/Phoenesis/LegumiStar/assets/23200652/20699e24-d00a-4499-a2be-2a356f046da0)
