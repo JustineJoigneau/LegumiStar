@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 from keras.models import load_model
 import tensorflow as tf
-from keras.preprocessing import image
+import keras.utils as image
 
 
 
