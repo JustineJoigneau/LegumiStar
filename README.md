@@ -1,5 +1,6 @@
 ﻿# LegumiStar
 
+
 ## Documentation technique 
 
 ### Récupération physique des données
@@ -24,12 +25,15 @@ Le premier modèle permet dans un premier temps de reconnaître le légume "en t
 
 Toutes ces différentes parties sont liées par une interface graphique, développée à l'aide de **Tkinter**. Celle-ci permet à l'aide d'un menu déroulant de choisir la musique désirée, parmi celles disponibles. L'interface permet également de gérer et mixer la chanson sélectionnée, en fonction du légume qui "chante". Celui-ci est reconnu et détecté grâce à l'IA précédemment décrite, à l'aide de la caméra d'un smartphone. En effet, via le logiciel **IVCam**, la caméra du smartphone est simulée comme étant la webcam de l'ordinateur. Enfin, grâce au deuxième modèle d'apprentissage, si le légume chanteur est considéré comme "moche", alors le ratio utilisé pour modifier les notes de la chanson sera bas,et donc la musique dégradée.
 
-
-
+### Diagrammes
 
 ![SetupDiagram](https://github.com/JustineJoigneau/LegumiStar/assets/23200652/da9602f7-1198-4488-b1d2-ef1f048d09a3)
 
 ![diagrammeSonore](https://github.com/Phoenesis/LegumiStar/assets/23200652/20699e24-d00a-4499-a2be-2a356f046da0)
 
+### Preuve que chaque légume possède sa propre voix!
+
 <img width="1499" alt="image" src="https://github.com/Phoenesis/LegumiStar/assets/23200652/d468e915-1ee5-47cd-980f-0562372c376b">
-Grâce à audacity nous mettons en evidance la différence de son entre une patate et un citron, modulant une note de piano spécifique
+
+Ici nous avons fait traverser une même onde sinusoïdale à une fréquence de 440 kHz dans deux légumes différents. En haut l'onde bruitée qui a traversé une pomme de terre, et en dessous celle issue d'un citron! 
+C'est à l'aide de ces bruits que nous avons pu par la suite modifier les différentes notes de piano, **et ainsi faire chanter les légumes de manière unique!**
