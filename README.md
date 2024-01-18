@@ -5,7 +5,7 @@
 
 ### Récupération physique des données
 
-Tout d'abord, une onde sinusoïdale est envoyée à travers un légume. A l'aide d'un oscilloscope, un signal sinusoïdale bruité par le légume est récupéré à ses bornes. Celui-ci est ensuite enregistré via une clé USB.
+Tout d'abord, une onde sinusoïdale est envoyée à travers un légume. A l'aide d'un oscilloscope, un signal sinusoïdal bruité par le légume est récupéré à ses bornes. Celui-ci est ensuite enregistré via une clé USB.
 
 ### Utilisation du programme soundProcessing.py
 
