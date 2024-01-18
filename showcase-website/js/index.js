@@ -1,10 +1,10 @@
 var artistsData = [
-    { id: 0, name: "Clémentine", edition: 2036, srcImage: "./img/apple-without-bg.png" },
-    { id: 1, name: "Céline Dion", edition: 2035, srcImage: "./img/lemon-without-bg.png" },
-    { id: 2, name: "Patrick Otato", edition: 2034, srcImage: "./img/potato-without-bg.png" },
-    { id: 3, name: "Clément", edition: 2033, srcImage: "./img/sweet-potato-without-bg.png" },
-    { id: 4, name: "Charline", edition: 2032, srcImage: "./img/zucchini-without-bg.png" },
-    { id: 5, name: "Zoé", edition: 2031, srcImage: "./img/banana-without-bg.png" },
+    { id: 0, name: "Clémentine", edition: "18 janvier 2036", srcImage: "./img/apple-without-bg.png" },
+    { id: 1, name: "Céline Dion", edition: "15 janvier 2036", srcImage: "./img/lemon-without-bg.png" },
+    { id: 2, name: "Patrick Otato", edition: "16 janvier 2036", srcImage: "./img/potato-without-bg.png" },
+    { id: 3, name: "Clément", edition: "14 janvier 2036", srcImage: "./img/sweet-potato-without-bg.png" },
+    { id: 4, name: "Charline", edition: "17 janvier 2036", srcImage: "./img/zucchini-without-bg.png" },
+    { id: 5, name: "Zoé", edition: "12 janvier 2036", srcImage: "./img/banana-without-bg.png" },
 ];
 
 var starsData = [
@@ -63,7 +63,7 @@ function buildCardsInCarousel() {
 
         var caption = document.createElement('div');
         caption.className = 'carousel-caption d-none d-md-block';
-        caption.innerHTML = '<h3>' + artist.name + '</h3>Gagnante de l\'édition ' + artist.edition;
+        caption.innerHTML = '<h3>' + artist.name + '</h3>Gagnante de l\'édition du ' + artist.edition;
 
         carouselItem.appendChild(img);
         carouselItem.appendChild(captionBackground);
@@ -96,7 +96,6 @@ function buildOpinionCards() {
         h3.className = 'card-title';
         h3.textContent = opinion.name;
         var containerStars = document.createElement('div');
-        console.log(opinion.fullStar)
         for (let i = 0; i < opinion.fullStar; i++) {
             var img = document.createElement('img');
             img.src = starsData[0].src;
