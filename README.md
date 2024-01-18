@@ -27,9 +27,9 @@ Toutes ces différentes parties sont liées par une interface graphique, dévelo
 
 ### Diagrammes
 
-![SetupDiagram](https://github.com/JustineJoigneau/LegumiStar/assets/23200652/da9602f7-1198-4488-b1d2-ef1f048d09a3)
+![SetupDiagram](https://github.com/Phoenesis/LegumiStar/assets/23200652/d9cb39f8-b99a-4ede-beaa-6f1b206df691)
 
-![diagrammeSonore](https://github.com/Phoenesis/LegumiStar/assets/23200652/20699e24-d00a-4499-a2be-2a356f046da0)
+![diagrammeSonore](https://github.com/Phoenesis/LegumiStar/assets/23200652/9f509651-1da8-499e-bfe9-1571f1ab7568)
 
 ### Preuve que chaque légume possède sa propre voix!
 
