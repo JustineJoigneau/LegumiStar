@@ -2,6 +2,10 @@
     overflow-x: hidden;
 }
 
+#body-analyse {
+    overflow-x: hidden;
+}
+
 .left-paragraph-marketing-container {
     display: flex;
     flex-direction: row;

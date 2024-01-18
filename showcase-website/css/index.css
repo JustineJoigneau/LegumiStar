@@ -22,11 +22,11 @@ body {
 }
 
 #img-presentation-homepage {
-    background: linear-gradient(90deg, rgba(155,245,163,1) 0%, rgba(155,245,163,1) 44%, rgba(252,200,165,1) 56%, rgba(252,200,165,1) 100%);
+    background: linear-gradient(90deg, rgba(155,245,163,1) 0%, rgba(155,245,163,1) 44%, rgb(248, 173, 123) 56%, rgb(248, 173, 123) 100%);
 }
 
 #right-presentation-homepage {
-    background-color: #fcc8a5; 
+    background-color: rgb(248, 173, 123); 
     display: flex; 
     align-items: center; 
     border-radius: 0 20px 20px 0; 
