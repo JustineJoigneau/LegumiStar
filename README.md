@@ -18,7 +18,7 @@ Afin de faire ***"chanter le légume"***, nous avons sélectionné des chansons 
 
 ### Utilisation d'IA
 
-Afin de suivre le fil conducteur de notre projet, une téléréalité sur des fruits, on a voulu montrer l'aspect superficiel des star systems de téléréalité, leur objectif étant de faire de l'audimat, nous avons décidé que les légumes jugés **"jolis"** produiraient des meilleures chansons que les légumes **"moches"**. En ce sens, nous avons jugé nécessaire l'utilisation de modèles d'apprentisage. 
+Afin de suivre le fil conducteur de notre projet, une téléréalité sur des fruits, on a voulu montrer l'aspect superficiel des star systems de téléréalité, leur objectif étant de faire de l'audimat, nous avons décidé que les légumes jugés **"jolis"** produiraient des meilleures chansons que les légumes **"moches"**. En ce sens, nous avons jugé nécessaire l'utilisation de modèles d'apprentissage. 
 Le premier modèle permet dans un premier temps de reconnaître le légume "en train de chanter" à partir d'une image. Ensuite, un autre modèle permet quant à lui de déterminer si un légume est pourri, donc considéré comme moche, ou bien s'il est jugé beau, toujours à partir d'une image. 
 
 ### Produit final
