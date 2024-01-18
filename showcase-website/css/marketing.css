@@ -1,0 +1,27 @@
+#body-marketing {
+    overflow-x: hidden;
+}
+
+.left-paragraph-marketing-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 40px;
+}
+
+.left-paragraph-marketing-container .left-paragraph-marketing {
+    background-color: #fcd6be;
+    border-radius: 20px;
+    padding: 10px 15px 5px 15px;
+}
+
+.right-paragraph-marketing-container {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 40px;
+}
+
+.right-paragraph-marketing-container .right-paragraph-marketing {
+    background-color: #9bf5a3;
+    border-radius: 20px;
+    padding: 10px 15px 5px 15px;
+}
