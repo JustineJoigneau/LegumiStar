@@ -14,11 +14,11 @@ Le signal bruité est tout d'abord récupéré au format *.csv*, avant d'être t
 
 ### Utilisation des notes de piano modifiées par le légume
 
-Afin de faire ***"chanter le légume"***, nous avons sélectionné des chansons exclusivement composées de notes de piano, au format *MIDI* (Musical Instrument Digital Interface), qui permet notamment de gérer la musique avec les notes qui la composent. Dans notre programme, nous rassemblons les notes contenues dans la musique souhaitée, et les remplaçons par celles qui ont précédemment été modifiées par le légume. Pour arriver à ce résulat et d'un point de vue technique, les notes modifiées qui composent la musique doivent tout d'abord être rassemblées dans un fichier d'extension *SF2* (SoundFont2), afin d'être par la suite gérées au format *MIDI*.Ce fichier au format *MIDI* constitue alors la nouvelle version de la chanson modifiée, celle ***chantée par le légume!***
+Afin de faire ***"chanter le légume"***, nous avons sélectionné des chansons exclusivement composées de notes de piano, au format *MIDI* (Musical Instrument Digital Interface), qui permet notamment de gérer la musique avec les notes qui la composent. Dans notre programme, nous rassemblons les notes contenues dans la musique souhaitée, et les remplaçons par celles qui ont précédemment été modifiées par le légume. Pour arriver à ce résultat et d'un point de vue technique, les notes modifiées qui composent la musique doivent tout d'abord être rassemblées dans un fichier d'extension *SF2* (SoundFont2), afin d'être par la suite gérées au format *MIDI*.Ce fichier au format *MIDI* constitue alors la nouvelle version de la chanson modifiée, celle ***chantée par le légume!***
 
 ### Utilisation d'IA
 
-Afin de suivre le fil conducteur de notre projet et sa satire générale de la société, nous avons décidé que les légumes jugés **"jolis"** produiraient des meilleures chansons que les légumes **"moches"**. En ce sens, nous avons jugé nécessaire l'utilisation de modèles d'apprentisage. 
+Afin de suivre le fil conducteur de notre projet, une téléréalité sur des fruits, on a voulu montrer l'aspect superficiel des star systems de téléréalité, leur objectif étant de faire de l'audimat, nous avons décidé que les légumes jugés **"jolis"** produiraient des meilleures chansons que les légumes **"moches"**. En ce sens, nous avons jugé nécessaire l'utilisation de modèles d'apprentisage. 
 Le premier modèle permet dans un premier temps de reconnaître le légume "en train de chanter" à partir d'une image. Ensuite, un autre modèle permet quant à lui de déterminer si un légume est pourri, donc considéré comme moche, ou bien s'il est jugé beau, toujours à partir d'une image. 
 
 ### Produit final
