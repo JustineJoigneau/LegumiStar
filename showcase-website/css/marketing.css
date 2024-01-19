@@ -37,7 +37,7 @@ width: 100%;
 .centered-marketing {
     position: relative;
     margin-bottom: 3vh;
-  }
+}
 
 .centered-marketing-text {
     position: absolute;
@@ -58,9 +58,9 @@ width: 100%;
     font-size: 50px;
     border-radius: 10px;
     transition: all .2s;
-  }
+}
 
-  .block:hover {
+.block:hover {
     background-color: #417c46;
     transition: all .2s;  
-  }
+}
