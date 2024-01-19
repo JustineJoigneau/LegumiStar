@@ -47,10 +47,11 @@ C'est à l'aide de ces bruits que nous avons pu par la suite modifier les diffé
 ### SOURCES
 
 Pour la partie IA de notre projet, nous utilisons FreshCheck, un système intelligent conçu pour identifier les fruits et légumes sur des images et fournir un score de fraîcheur. 
-
-
 Le code source de notre IA **FreshCheck** est situé ici : [https://github.com/captraj/freshcheck]
 
+Pour le système d'apprentissage de notre IA nous nous sommes basés sur les travaux de cette page git : 
+[https://github.com/sanggusti/final_bangkit]
 
-https://github.com/AjayK47/image-classification-with-inceptioV3-and-Google-Palm
+Une partie de notre projet utilise également une partie des travaux de cette page git concernant la reconnaissance des fruits et légumes : 
+[https://github.com/AjayK47/image-classification-with-inceptioV3-and-Google-Palm]
 
