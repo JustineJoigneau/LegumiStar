@@ -41,3 +41,16 @@ Toutes ces différentes parties sont liées par une interface graphique, dévelo
 
 Ici nous avons fait traverser une même onde sinusoïdale à une fréquence de 440 kHz dans deux légumes différents. En haut l'onde bruitée qui a traversé une pomme de terre, et en dessous celle issue d'un citron! 
 C'est à l'aide de ces bruits que nous avons pu par la suite modifier les différentes notes de piano, **et ainsi faire chanter les légumes de manière unique!**
+
+---
+
+### SOURCES
+
+Pour la partie IA de notre projet, nous utilisons FreshCheck, un système intelligent conçu pour identifier les fruits et légumes sur des images et fournir un score de fraîcheur. 
+
+
+Le code source de notre IA **FreshCheck** est situé ici : [https://github.com/captraj/freshcheck]
+
+
+https://github.com/AjayK47/image-classification-with-inceptioV3-and-Google-Palm
+
