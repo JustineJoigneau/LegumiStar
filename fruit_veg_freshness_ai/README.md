@@ -1,6 +1,9 @@
+###SOURCES
+
+Pour la partie IA de notre projet, nous utilisons l'API FreshCheck, un système intelligent conçu pour identifier les fruits et légumes sur des images et fournir un score de fraîcheur. 
 
 
-The **FreshCheck** repository is located at : [https://github.com/captraj/freshcheck]
+Le code source de notre IA **FreshCheck** est situé ici : [https://github.com/captraj/freshcheck]
 
 
 
