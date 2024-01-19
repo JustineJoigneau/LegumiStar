@@ -10,9 +10,7 @@ import evaluate_image
 from customtkinter import CTk, CTkFrame, CTkLabel, CTkOptionMenu, CTkImage, CTkButton, StringVar, CTkToplevel
 from midi2audio import FluidSynth
 
-camera_choice = 0
-stop_thread = False
-
+capture = None
 
 def get_camera_ids():
     camera_ids = []
@@ -29,8 +27,9 @@ def get_camera_ids():
 
 
 def change_camera(choice):
-    global camera_choice, camera_frame
+    global camera_choice, camera_frame, capture
     camera_choice = int(choice.split(" ")[1])
+    capture = cv2.VideoCapture(camera_choice)
     prendre_photo("img.png", camera_choice)
     load_image()
 
@@ -53,10 +52,9 @@ def load_image():
 
 
 def prendre_photo(nom_fichier, index_webcam):
-    capture = cv2.VideoCapture(index_webcam)
+    global capture
     _, image = capture.read()
     cv2.imwrite(nom_fichier, image)
-    capture.release()
 
 
 def take_photo():
@@ -70,7 +68,7 @@ def analyse_photo():
     if not os.path.exists("img.png"):
         print("Pas d'image à analyser")
         return
-    
+
     type_star.set(evaluate_image.evaluate_name("img.png"))
     freshness_star.set(evaluate_image.print_fresh(evaluate_image.evaluate_rotten_vs_fresh("img.png")))
 
@@ -83,23 +81,27 @@ def get_midi_files():
     return files
 
 
+def error_window(text):
+    toplevel = CTkToplevel()
+    toplevel.title("Erreur")
+    toplevel.geometry("500x150")
+    toplevel.resizable(False, False)
+    toplevel.grid_columnconfigure(0, weight=1)
+    toplevel.grid_rowconfigure(0, weight=1)
+    toplevel.grab_set()
+    lbl = CTkLabel(toplevel, text=text)
+    lbl.grid(row=0, column=0, padx=5, pady=5, sticky="we")
+    btn = CTkButton(toplevel, text="Ok", command=toplevel.destroy)
+    btn.grid(row=1, column=0, padx=5, pady=5, sticky="we")
+
+
 def sing():
     global music_run, type_star, freshness_star, music_list, button_sing
     type_star_text = type_star.get()
     freshness_star_text = freshness_star.get()
     music_list_text = music_list.get()
     if type_star_text == "???" or freshness_star_text == "???":
-        toplevel = CTkToplevel()
-        toplevel.title("Erreur")
-        toplevel.geometry("500x150")
-        toplevel.resizable(False, False)
-        toplevel.grid_columnconfigure(0, weight=1)
-        toplevel.grid_rowconfigure(0, weight=1)
-        toplevel.grab_set()
-        lbl = CTkLabel(toplevel, text="Veuillez analyser la photo avant de faire chanter la future star")
-        lbl.grid(row=0, column=0, padx=5, pady=5, sticky="we")
-        btn = CTkButton(toplevel, text="Ok", command=toplevel.destroy)
-        btn.grid(row=1, column=0, padx=5, pady=5, sticky="we")
+        error_window("Veuillez analyser une photo avant de faire chanter la future star")
     else:
         # sf2_file = type_star_text.upper() + "_" + freshness_star_text.upper() + ".sf2" // Ligne quand on aura les sf2 (au bon format)
         sf2_file = "patate.sf2"
@@ -143,100 +145,108 @@ def stop():
 
 camera_ids = get_camera_ids()
 midi_files = get_midi_files()
+camera_choice = None
+if len(camera_ids) == 0:
+    error_window("Aucune caméra détectée")
+stop_thread = False
+try:
+    window = CTk()
+    window.title("LegumiStar")
+    window.geometry("1280x720")
 
-window = CTk()
-window.title("LegumiStar")
-window.geometry("1280x720")
+    # Setup grids
+    window.grid_columnconfigure(0, weight=1)
+    window.grid_columnconfigure(1, weight=1)
 
-# Setup grids
-window.grid_columnconfigure(0, weight=1)
-window.grid_columnconfigure(1, weight=1)
+    window.grid_rowconfigure(0, weight=1)
+    window.grid_rowconfigure(1, weight=1)
+    window.grid_rowconfigure(2, weight=1)
+    window.grid_rowconfigure(3, weight=1)
+    window.grid_rowconfigure(4, weight=1)
 
-window.grid_rowconfigure(0, weight=1)
-window.grid_rowconfigure(1, weight=1)
-window.grid_rowconfigure(2, weight=1)
-window.grid_rowconfigure(3, weight=1)
-window.grid_rowconfigure(4, weight=1)
+    # Menu de la liste CTkOptionMenu des caméras
+    camera_list_frame = CTkFrame(window)
+    camera_list_frame.grid(row=0, column=0, sticky="nsew")
+    camera_list_frame.grid_columnconfigure(0, weight=1)
+    camera_list_frame.grid_columnconfigure(1, weight=1)
+    camera_list_frame.grid_rowconfigure(0, weight=1)
+    camera_list_label = CTkLabel(camera_list_frame, text="Choix de la caméra")
+    camera_list_label.grid(row=0, column=0, sticky="nsew")
+    camera_list = CTkOptionMenu(camera_list_frame, values=camera_ids, command=change_camera)
+    camera_list.grid(row=0, column=1)
 
-# Menu de la liste CTkOptionMenu des caméras
-camera_list_frame = CTkFrame(window)
-camera_list_frame.grid(row=0, column=0, sticky="nsew")
-camera_list_frame.grid_columnconfigure(0, weight=1)
-camera_list_frame.grid_columnconfigure(1, weight=1)
-camera_list_frame.grid_rowconfigure(0, weight=1)
-camera_list_label = CTkLabel(camera_list_frame, text="Choix de la caméra")
-camera_list_label.grid(row=0, column=0, sticky="nsew")
-camera_list = CTkOptionMenu(camera_list_frame, values=camera_ids, command=change_camera)
-camera_list.grid(row=0, column=1)
+    # Image de la caméra
+    camera_frame = CTkFrame(window)
+    camera_frame.grid(row=1, column=0, rowspan=4, sticky="nsew")
+    camera_frame.grid_columnconfigure(0, weight=1)
+    camera_frame.grid_rowconfigure(0, weight=1)
 
-# Image de la caméra
-camera_frame = CTkFrame(window)
-camera_frame.grid(row=1, column=0, rowspan=4, sticky="nsew")
-camera_frame.grid_columnconfigure(0, weight=1)
-camera_frame.grid_rowconfigure(0, weight=1)
+    # Bouton pour prendre la photo
+    button_frame = CTkFrame(window)
+    button_frame.grid(row=5, column=0, sticky="nsew")
+    button_frame.grid_columnconfigure(0, weight=1)
+    button_frame.grid_rowconfigure(0, weight=1)
+    button = CTkButton(button_frame, text="Prendre la photo", command=take_photo)
+    button.grid(row=0, column=0, padx=10, pady=10, sticky="nsew")
 
-# Bouton pour prendre la photo
-button_frame = CTkFrame(window)
-button_frame.grid(row=5, column=0, sticky="nsew")
-button_frame.grid_columnconfigure(0, weight=1)
-button_frame.grid_rowconfigure(0, weight=1)
-button = CTkButton(button_frame, text="Prendre la photo", command=take_photo)
-button.grid(row=0, column=0, padx=10, pady=10, sticky="nsew")
+    # Bonton pour analyser la photo
+    button_frame = CTkFrame(window)
+    button_frame.grid(row=0, column=1, rowspan=2, sticky="nsew")
+    button_frame.grid_columnconfigure(0, weight=1)
+    button_frame.grid_rowconfigure(0, weight=1)
+    button = CTkButton(button_frame, text="Analyser la photo", command=analyse_photo)
+    button.grid(row=0, column=0)
 
-# Bonton pour analyser la photo
-button_frame = CTkFrame(window)
-button_frame.grid(row=0, column=1, rowspan=2, sticky="nsew")
-button_frame.grid_columnconfigure(0, weight=1)
-button_frame.grid_rowconfigure(0, weight=1)
-button = CTkButton(button_frame, text="Analyser la photo", command=analyse_photo)
-button.grid(row=0, column=0)
+    # Label pour le type de star
+    type_star = StringVar(value='???')
+    label_frame = CTkFrame(window)
+    label_frame.grid(row=2, column=1, sticky="nsew")
+    label_frame.grid_columnconfigure(0, weight=1)
+    label_frame.grid_columnconfigure(1, weight=1)
+    label_frame.grid_rowconfigure(0, weight=1)
+    label = CTkLabel(label_frame, text="Type de star : ")
+    label.grid(row=0, column=0, sticky="nse")
+    label = CTkLabel(label_frame, textvariable=type_star)
+    label.grid(row=0, column=1, sticky="nsw")
 
-# Label pour le type de star
-type_star = StringVar(value='???')
-label_frame = CTkFrame(window)
-label_frame.grid(row=2, column=1, sticky="nsew")
-label_frame.grid_columnconfigure(0, weight=1)
-label_frame.grid_columnconfigure(1, weight=1)
-label_frame.grid_rowconfigure(0, weight=1)
-label = CTkLabel(label_frame, text="Type de star : ")
-label.grid(row=0, column=0, sticky="nse")
-label = CTkLabel(label_frame, textvariable=type_star)
-label.grid(row=0, column=1, sticky="nsw")
+    # Label pour la fraicheur
+    freshness_star = StringVar(value='???')
+    label_frame = CTkFrame(window)
+    label_frame.grid(row=3, column=1, sticky="nsew")
+    label_frame.grid_columnconfigure(0, weight=1)
+    label_frame.grid_columnconfigure(1, weight=1)
+    label_frame.grid_rowconfigure(0, weight=1)
+    label = CTkLabel(label_frame, text="Etat : ")
+    label.grid(row=0, column=0, sticky="nse")
+    label = CTkLabel(label_frame, textvariable=freshness_star)
+    label.grid(row=0, column=1, sticky="nsw")
 
-# Label pour la fraicheur
-freshness_star = StringVar(value='???')
-label_frame = CTkFrame(window)
-label_frame.grid(row=3, column=1, sticky="nsew")
-label_frame.grid_columnconfigure(0, weight=1)
-label_frame.grid_columnconfigure(1, weight=1)
-label_frame.grid_rowconfigure(0, weight=1)
-label = CTkLabel(label_frame, text="Etat : ")
-label.grid(row=0, column=0, sticky="nse")
-label = CTkLabel(label_frame, textvariable=freshness_star)
-label.grid(row=0, column=1, sticky="nsw")
+    # Menu de la liste CTkOptionMenu pour le choix de la musique
+    music_list_frame = CTkFrame(window)
+    music_list_frame.grid(row=4, column=1, sticky="nsew")
+    music_list_frame.grid_columnconfigure(0, weight=1)
+    music_list_frame.grid_columnconfigure(1, weight=1)
+    music_list_frame.grid_rowconfigure(0, weight=1)
+    music_list_label = CTkLabel(music_list_frame, text="Choix de la musique")
+    music_list_label.grid(row=0, column=0, sticky="nsew")
+    music_list = CTkOptionMenu(music_list_frame, values=midi_files)
+    music_list.grid(row=0, column=1)
 
-# Menu de la liste CTkOptionMenu pour le choix de la musique
-music_list_frame = CTkFrame(window)
-music_list_frame.grid(row=4, column=1, sticky="nsew")
-music_list_frame.grid_columnconfigure(0, weight=1)
-music_list_frame.grid_columnconfigure(1, weight=1)
-music_list_frame.grid_rowconfigure(0, weight=1)
-music_list_label = CTkLabel(music_list_frame, text="Choix de la musique")
-music_list_label.grid(row=0, column=0, sticky="nsew")
-music_list = CTkOptionMenu(music_list_frame, values=midi_files)
-music_list.grid(row=0, column=1)
+    # Bouton faire chanter la future star
+    button_frame = CTkFrame(window)
+    button_frame.grid(row=5, column=1, sticky="nsew")
+    button_frame.grid_columnconfigure(0, weight=1)
+    button_frame.grid_columnconfigure(1, weight=1)
+    button_frame.grid_rowconfigure(0, weight=1)
+    button_sing = CTkButton(button_frame, text="Faire chanter la future star", command=sing)
+    button_sing.grid(row=0, column=0)
+    button_stop = CTkButton(button_frame, text="Stop", command=stop)
+    button_stop.grid(row=0, column=1)
 
-# Bouton faire chanter la future star ?
-button_frame = CTkFrame(window)
-button_frame.grid(row=5, column=1, sticky="nsew")
-button_frame.grid_columnconfigure(0, weight=1)
-button_frame.grid_columnconfigure(1, weight=1)
-button_frame.grid_rowconfigure(0, weight=1)
-button_sing = CTkButton(button_frame, text="Faire chanter la future star", command=sing)
-button_sing.grid(row=0, column=0)
-button_stop = CTkButton(button_frame, text="Stop", command=stop)
-button_stop.grid(row=0, column=1)
+    change_camera(camera_ids[0])
+    load_image()
+    window.mainloop()
 
-prendre_photo("img.png", camera_choice)
-load_image()
-window.mainloop()
+except Exception as e:
+    error_window("Une erreur est survenue")
+    print(e)
