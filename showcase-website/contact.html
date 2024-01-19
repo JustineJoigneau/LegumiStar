@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
-<html lang="fr">
-
+<html lang="en">
 <head>
     <title>LegumiStar</title>
     <meta charset="UTF-8">
@@ -20,10 +18,8 @@
 
     <!-- tabler JS -->
     <script src="./js/tabler.js"></script>
-
 </head>
-
-<body id="body-marketing" class="d-flex flex-column vw-100">
+<body>
     <header class="navbar navbar-expand-md  d-print-none" data-bs-theme="dark" style="margin-bottom: 2em;">
         <div class="container-xl">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu"
@@ -76,57 +72,50 @@
             </div>
         </div>
     </header>
-    <div class="container marketing-photo">
-    <div class="centered-marketing">
-        <img src="./img/marketing-background.png" alt="Salle de concert" style="width:100%;">
-        <div class="centered-marketing-text">
-          <h1><mark style="background: #222222F0!important; color:white; font-weight:bold">   VOUS les faites pousser, on les fait briller !</mark></h1>
-          <button type="button" class="block" onclick="window.location.href='./contact.html';">DEVENIR UNE STAR</button> 
-        </div>
-    </div>
-    </div>
-    <div class="container w-75">
-        <h2>
-            Les légumes comme vous ne les avez jamais vus… et entendus.
-        </h2>
-    </div>
-
-    <div class="container w-75 left-paragraph-marketing-container">
-        <div class="w-75 left-paragraph-marketing" style="background-color: #9bf5a3;">
-            <p>
-                Découvrez Légumistar, le premier jeu télévisé qui sélectionne le meilleur légume chanteur de France.
-                Avec notre technologie, écoutez vos légumes chanter. En intégrant pleinement nos amis végétaux à notre
-                culture artistique, vous vous sentirez plus proches d'eux que vous ne l'avez été jusque-là ; de quoi
-                retrouver en eux l'humanité qui leur manquait pour les apprécier. <br>
-            </p>
-        </div>
-    </div>
-
-    <div class="container w-75 right-paragraph-marketing-container">
-        <div class="w-75 right-paragraph-marketing" style="background-color: #c4e8ae;">
-            <p>
-                Alors, sans attendre, venez tenter votre chance avec votre carotte, patate ou même votre betterave ;
-                chaque légume a sa propre voix, sa propre énergie, son propre charisme : à vous de le découvrir.
-            </p>
-        </div>
-    </div>
-
-    <div class="container w-75 left-paragraph-marketing-container">
-        <div class="w-75 left-paragraph-marketing" style="background-color: #e2e6af;">
-            <p>
-                Pour l'instant, notre concours, établi en Île-de-France, s'adresse aux agriculteurs locaux, nos cher·e·s
-                ami∙e∙s de Paris qui font pousser leurs tomates sur leur balcon ou des pommes de terre dans les
-                Catacombes. Mais plus tard, notre objectif est de briser les limites et d'inviter producteur∙ice∙s de
-                toutes les origines à faire participer le fruit de leur labeur.
-            </p>
-        </div>
-    </div>
-
-    <div class="container w-75 right-paragraph-marketing-container">
-        <div class="w-75 right-paragraph-marketing" style="background-color: #fce5af;">
-            <p>
-                Rejoignez donc la scène Légumistar : Quand l'artichaut s'invite au show, Légumistar écrit l'histoire !
-            </p>
+    <!-- inspiration : codepen -->
+    <div class="container-xl" style="background-color: #9bf5a3; padding-top: 20px; margin-bottom: 100px; margin-top: 50px; padding-bottom: 5vh; border-radius: 3vw;">
+        <div class="container text-gray-600 body-font bg-yellow-100">
+            <div class="container flex flex-col md:flex-row lg:max-w-5xl w-full px-5 py-12 md:py-24 mx-auto section">
+                <div class="">
+                    <h1 class="text-4xl text-gray-800 sm:text-4xl font-bold title-font mb-4">Page de contact</h1>
+                    <p class="leading-relaxed text-xl text-gray-900">
+                        Contactez-nous pour inscrire votre magnifique légume chanteur !
+                    </p>
+                </div>
+                <div class="">
+                    <form action="" method="post" id="submit-contact-form">
+                        <div class="p-2 w-full">
+                            <div class="relative">
+                                <label for="name" class="leading-7 py-4 text-lg text-gray-900">Votre nom *</label>
+                                <input type="text" id="name" name="name" required="" class="w-full bg-white rounded border border-gray-400 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-900 py-1 px-1 leading-8 transition-colors duration-200 ease-in-out ">
+                            </div>
+                        </div>
+                        <div class="p-2 w-full">
+                            <div class="relative">
+                                <label for="name-vegetable" class="leading-7 py-4 text-lg text-gray-900">Le nom de votre légume *</label>
+                                <input type="text" id="name-vegetable" name="name-vegetable" required="" class="w-full bg-white rounded border border-gray-400 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-900 py-1 px-1 leading-8 transition-colors duration-200 ease-in-out ">
+                            </div>
+                        </div>
+                        <div class="p-2 w-full">
+                            <div class="relative">
+                                <label for="email" class="leading-7 py-4 text-lg text-gray-900">Votre adresse mail *</label>
+                                <input type="email" id="email" name="email" required="" class="w-full bg-white rounded border border-gray-400 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-900 py-1 px-1 leading-8 transition-colors duration-200 ease-in-out ">
+                            </div>
+                        </div>
+                        <div class="p-2 w-full" style="margin-bottom: 5vh;">
+                            <div class="relative">
+                                <label for="message" class="leading-7 py-4 text-lg text-gray-900">Votre message *</label>
+                                <textarea id="message" name="message" required="" class="w-full bg-white rounded border border-gray-400 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 h-32 text-base outline-none text-gray-900 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out "></textarea>
+                            </div>
+                        </div>
+                        <div class="p-2 w-full">
+                            <button type="submit" class="flex text-white border-0 py-4 px-6 focus:outline-none hover:bg-blue-900 rounded text-xl font-bold shadow-lg mx-0 flex-col text-center g-recaptcha" style="background-color: #172332;">
+                                Send Message ✉
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     <footer class="w-100 footer-element-page">
@@ -141,17 +130,17 @@
                 <ul>
                     <li>
                         <a href="https://github.com/JustineJoigneau/LegumiStar">
-                            <img src="./icons/githubPic.png" alt="github">
+                            <img src="./icons/github.svg" alt="github">
                         </a>
                     </li>
                     <li>
                         <a href="https://fablab.ledome.info/">
-                            <img src="./icons/fablab.gif" alt="fablab">
+                            <img src="./icons/fablab.svg" alt="fablab">
                         </a>
                     </li>
                     <li>
                         <a href="https://fr.linkedin.com/school/ensicaen/">
-                            <img src="./icons/linkedin.png" alt="linkedin">
+                            <img src="./icons/linkedin.svg" alt="linkedin">
                         </a>
                     </li>
                     <li>
@@ -164,7 +153,6 @@
                 </ul>
             </div>
         </div>
-    </footer>
+    </footer>  
 </body>
-
 </html>
