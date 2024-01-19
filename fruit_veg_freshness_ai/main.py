@@ -103,8 +103,12 @@ def sing():
     if type_star_text == "???" or freshness_star_text == "???":
         error_window("Veuillez analyser une photo avant de faire chanter la future star")
     else:
-        # sf2_file = type_star_text.upper() + "_" + freshness_star_text.upper() + ".sf2" // Ligne quand on aura les sf2 (au bon format)
-        sf2_file = "patate.sf2"
+        type_star_text = type_star_text.upper()
+        freshness_star_text = freshness_star_text.upper()
+        sf2_file = type_star_text + "_" + freshness_star_text.upper() + ".sf2"
+        if not os.path.exists("sf2/" + sf2_file):
+            sf2_file = "patate.sf2"
+        print(sf2_file)
         fluidsynth = FluidSynth('sf2/' + sf2_file)
         midi_dir = os.path.join(os.getcwd(), 'midi_files')
         midi_file = os.path.join(midi_dir, music_list_text + '.mid')
