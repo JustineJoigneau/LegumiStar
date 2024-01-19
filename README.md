@@ -14,7 +14,11 @@ Le signal bruité est tout d'abord récupéré au format *.csv*, avant d'être t
 
 ### Utilisation des notes de piano modifiées par le légume
 
-Afin de faire ***"chanter le légume"***, nous avons sélectionné des chansons exclusivement composées de notes de piano, au format *MIDI* (Musical Instrument Digital Interface), qui permet notamment de gérer la musique avec les notes qui la composent. Dans notre programme, nous rassemblons les notes contenues dans la musique souhaitée, et les remplaçons par celles qui ont précédemment été modifiées par le légume. Pour arriver à ce résultat et d'un point de vue technique, les notes modifiées qui composent la musique doivent tout d'abord être rassemblées dans un fichier d'extension *SF2* (SoundFont2), afin d'être par la suite gérées au format *MIDI*.Ce fichier au format *MIDI* constitue alors la nouvelle version de la chanson modifiée, celle ***chantée par le légume!***
+Afin de faire ***"chanter le légume"***, nous avons sélectionné des chansons exclusivement composées de notes de piano, au format *MIDI* (Musical Instrument Digital Interface), qui permet notamment de gérer la musique avec les notes qui la composent. Dans notre programme, nous rassemblons les notes contenues dans la musique souhaitée, et les remplaçons par celles qui ont précédemment été modifiées par le légume.
+
+![diagrammeSonore](https://github.com/Phoenesis/LegumiStar/assets/23200652/9f509651-1da8-499e-bfe9-1571f1ab7568)
+
+Pour arriver à ce résultat et d'un point de vue technique, les notes modifiées qui composent la musique doivent tout d'abord être rassemblées dans un fichier d'extension *SF2* (SoundFont2), afin d'être par la suite gérées au format *MIDI*.Ce fichier au format *MIDI* constitue alors la nouvelle version de la chanson modifiée, celle ***chantée par le légume!***
 
 ### Utilisation d'IA
 
@@ -28,12 +32,9 @@ A la fin du processus décrit dans le diagramme, les modèles sont capables de n
 
 Toutes ces différentes parties sont liées par une interface graphique, développée à l'aide de **Tkinter**. Celle-ci permet à l'aide d'un menu déroulant de choisir la musique désirée, parmi celles disponibles. L'interface permet également de gérer et mixer la chanson sélectionnée, en fonction du légume qui "chante". Celui-ci est reconnu et détecté grâce à l'IA précédemment décrite, à l'aide de la caméra d'un smartphone. En effet, via le logiciel **IVCam**, la caméra du smartphone est simulée comme étant la webcam de l'ordinateur. Enfin, grâce au deuxième modèle d'apprentissage, si le légume chanteur est considéré comme "moche", alors le ratio utilisé pour modifier les notes de la chanson sera bas,et donc la musique dégradée.
 
-### Diagrammes
+### Diagramme général de l'organisation du projet 
 
 ![DiagrammeSetup](https://github.com/Phoenesis/LegumiStar/assets/23200652/a46254ee-77e8-4ab8-b794-7e5b1b49f4ca)
-
-
-![diagrammeSonore](https://github.com/Phoenesis/LegumiStar/assets/23200652/9f509651-1da8-499e-bfe9-1571f1ab7568)
 
 ### Preuve que chaque légume possède sa propre voix!
 
