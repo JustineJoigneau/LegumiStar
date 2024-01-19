@@ -55,3 +55,4 @@ Pour le système d'apprentissage de notre IA nous nous sommes basés sur les tra
 Une partie de notre projet utilise également une partie des travaux de cette page git concernant la reconnaissance des fruits et légumes : 
 [https://github.com/AjayK47/image-classification-with-inceptioV3-and-Google-Palm]
 
+Pour le système sonore du projet, nous avons créé nos propre scripts de conversion .csv .wav .mp3 et .mid, mais nous utilisons Polyphone pour la création de fichiers SF2 : [https://github.com/davy7125/polyphone/tree/master?tab=readme-ov-file] 
