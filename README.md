@@ -1,59 +1,85 @@
-﻿# LegumiStar
+﻿# A Simple Freshness Classification Model (Using MobileNet V2)
+
+This repository contains code for the creation, training and implementation of a model that classifies the freshness of a fruit or vegetable image as either fresh, medium fresh, or not fresh and also provides a freshness index based on the assesed image. The model is implemented in Python using Tensorflow and OpenCV libraries and uses a Transfer Learning approach by using MobileNet V2 pretrained model.
+
+## Model Description
+
+The model has been trained using a Jupyter Notebook (freshness_regression.ipynb) to classify the freshness of input fruit or vegetable images. The training process involves the use of a preprocessed dataset and a custom convolutional neural network (CNN) architecture based on the MobileNetV2 model.
+
+The MobileNetV2 model is a powerful feature extractor that has been pretrained on the ImageNet dataset. We use this model as the base and freeze its layers to prevent them from being modified during our training process. On top of the MobileNetV2 model, we add additional layers to fine-tune the model for our specific freshness classification task.
+
+## Model Architecture
+
+The model architecture is as follows:
+
+1. MobileNetV2 (up to the last convolutional layer) as the base feature extractor.
+2. BatchNormalization layer to normalize the outputs from the base model.
+3. Two SeparableConv2D layers with 64 filters each, followed by ReLU activation for feature extraction.
+4. MaxPooling2D layer with a pool size of (2, 2) to downsample the spatial dimensions.
+5. Dropout layer with a dropout rate of 40% to reduce overfitting.
+
+6. Two Conv2D layers with 128 filters each, followed by ReLU activation for further feature extraction.
+7. BatchNormalization layer to normalize the outputs from the previous layers.
+8. MaxPooling2D layer with a pool size of (2, 2) and Dropout layer with a dropout rate of 50%.
+
+9. Flatten layer to convert the 2D feature maps into a 1D feature vector.
+10. Dense layer with 128 units and ReLU activation for high-level feature learning.
+11. Dropout layer with a dropout rate of 30% to further prevent overfitting.
+
+12. Dense output layer with 1 unit and a sigmoid activation function for binary classification (fresh or not fresh).
+
+## Requirements
+
+Before using the model, ensure you have the following dependencies installed:
+
+- Python 3.10
+- Tensorflow
+- OpenCV
+- Numpy
+
+You can install the required libraries by using the following commands for conda environment:
+
+```bash
+conda install -c conda-forge tqdm -y
+conda install -c conda-forge matplotlib -y
+conda install -c conda-forge pandas -y
+conda install -c conda-forge opencv -y
+```
+
+## Usage of evaluation script
+
+To use the model for classifying the freshness of a fruit or vegetable image, follow these steps:
+
+1. Clone the repository to your local machine:
+
+```bash
+git clone https://github.com/captraj/fruit-veg-freshness-ai.git
+cd fruit-veg-freshness-ai
+```
 
 
-## Documentation technique 
+2. Make sure to place the image you want to evaluate in the repository's root directory and rename it to `image-to-eval.png`. You may replace `image-to-eval.png` with the path to your own image if it's located elsewhere.
 
-### Récupération physique des données
+3. Use the `evaluate-image.py` script to evaluate the freshness of the image:
 
-Tout d'abord, une onde sinusoïdale est envoyée à travers un légume. A l'aide d'un oscilloscope, un signal sinusoïdal bruité par le légume est récupéré à ses bornes. Celui-ci est ensuite enregistré via une clé USB.
+```bash
+python evaluate-image.py
+```
 
-### Utilisation du programme soundProcessing.py
 
-A partir du signal bruité, les 88 notes de piano, que nous avons précédemment récupérées, sont modifiées et mixées avec un certain ratio compris entre **0** et **1**. Plus ce ratio se rapproche de 1 et moins la note de piano est modifiée par le bruit produit par le légume. 
-Le signal bruité est tout d'abord récupéré au format *.csv*, avant d'être transformé en fichier *.wav*. Les notes du piano sont ensuite traitées au format *mp3*.
+4. The script will output the prediction and its freshness classification:
 
-### Utilisation des notes de piano modifiées par le légume
+`Prediction: 0.245`
+`The item is MEDIUM FRESH`
 
-Afin de faire ***"chanter le légume"***, nous avons sélectionné des chansons exclusivement composées de notes de piano, au format *MIDI* (Musical Instrument Digital Interface), qui permet notamment de gérer la musique avec les notes qui la composent. Dans notre programme, nous rassemblons les notes contenues dans la musique souhaitée, et les remplaçons par celles qui ont précédemment été modifiées par le légume.
+Here the value `0.245` represents the model's confidence that the item is fresh. The classification is determined based on predefined thresholds.
 
-![diagrammeSonore](https://github.com/Phoenesis/LegumiStar/assets/23200652/9f509651-1da8-499e-bfe9-1571f1ab7568)
+### Customization
 
-Pour arriver à ce résultat et d'un point de vue technique, les notes modifiées qui composent la musique doivent tout d'abord être rassemblées dans un fichier d'extension *SF2* (SoundFont2), afin d'être par la suite gérées au format *MIDI*.Ce fichier au format *MIDI* constitue alors la nouvelle version de la chanson modifiée, celle ***chantée par le légume!***
+If you wish to customize the thresholds used for freshness classification, you can do so by modifying the values of `threshold_fresh` and `threshold_medium` in the `evaluate-image.py` script. Adjusting these values according to your standards may lead to better predictions for your specific use case.
 
-### Utilisation d'IA
+This project has been completed!
 
-Afin de suivre le fil conducteur de notre projet, une téléréalité sur des fruits, on a voulu montrer l'aspect superficiel des star systems de téléréalité, leur objectif étant de faire de l'audimat, nous avons décidé que les légumes jugés **"jolis"** produiraient des meilleures chansons que les légumes **"moches"**. En ce sens, nous avons jugé nécessaire l'utilisation de modèles d'apprentissage. 
-Le premier modèle permet dans un premier temps de reconnaître le légume "en train de chanter" à partir d'une image. Ensuite, un autre modèle permet quant à lui de déterminer si un légume est pourri, donc considéré comme moche, ou bien s'il est jugé beau, toujours à partir d'une image. 
-Nos modèles ont suivi le schéma suivant : 
-![Diagramme pour représenter le traavail fait sur les IA](https://github.com/Phoenesis/LegumiStar/assets/102919545/62f1f58c-b7f7-41c4-934e-63f76b76082c).
-A la fin du processus décrit dans le diagramme, les modèles sont capables de nous donner une prédiction sur les photos qu'on leur envoie.
+The further implementation of this project into an API is listed on my profile as **freshcheck**, do have a look at that to better understand the integration of this repository.
 
-### Produit final
-
-Toutes ces différentes parties sont liées par une interface graphique, développée à l'aide de **Tkinter**. Celle-ci permet à l'aide d'un menu déroulant de choisir la musique désirée, parmi celles disponibles. L'interface permet également de gérer et mixer la chanson sélectionnée, en fonction du légume qui "chante". Celui-ci est reconnu et détecté grâce à l'IA précédemment décrite, à l'aide de la caméra d'un smartphone. En effet, via le logiciel **IVCam**, la caméra du smartphone est simulée comme étant la webcam de l'ordinateur. Enfin, grâce au deuxième modèle d'apprentissage, si le légume chanteur est considéré comme "moche", alors le ratio utilisé pour modifier les notes de la chanson sera bas,et donc la musique dégradée.
-
-### Diagramme général de l'organisation du projet 
-
-![DiagrammeSetup](https://github.com/Phoenesis/LegumiStar/assets/23200652/a46254ee-77e8-4ab8-b794-7e5b1b49f4ca)
-
-### Preuve que chaque légume possède sa propre voix!
-
-<img width="1499" alt="image" src="https://github.com/Phoenesis/LegumiStar/assets/23200652/d468e915-1ee5-47cd-980f-0562372c376b">
-
-Ici nous avons fait traverser une même onde sinusoïdale à une fréquence de 440 kHz dans deux légumes différents. En haut l'onde bruitée qui a traversé une pomme de terre, et en dessous celle issue d'un citron! 
-C'est à l'aide de ces bruits que nous avons pu par la suite modifier les différentes notes de piano, **et ainsi faire chanter les légumes de manière unique!**
-
----
-
-### SOURCES
-
-Pour la partie IA de notre projet, nous utilisons FreshCheck, un système intelligent conçu pour identifier les fruits et légumes sur des images et fournir un score de fraîcheur. 
-Le code source de notre IA **FreshCheck** est situé ici : [https://github.com/captraj/freshcheck]
-
-Pour le système d'apprentissage de notre IA nous nous sommes basés sur les travaux de cette page git : 
-[https://github.com/sanggusti/final_bangkit]
-
-Une partie de notre projet utilise également une partie des travaux de cette page git concernant la reconnaissance des fruits et légumes : 
-[https://github.com/AjayK47/image-classification-with-inceptioV3-and-Google-Palm]
-
-Pour le système sonore du projet, nous avons créé nos propre scripts de conversion .csv .wav .mp3 et .mid, mais nous utilisons Polyphone pour la création de fichiers SF2 : [https://github.com/davy7125/polyphone/tree/master?tab=readme-ov-file] 
+The **FreshCheck** repository is located at : [https://github.com/captraj/freshcheck]
