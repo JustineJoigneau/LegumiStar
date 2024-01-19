@@ -1,4 +1,4 @@
-###SOURCES
+**SOURCES**
 
 Pour la partie IA de notre projet, nous utilisons l'API FreshCheck, un système intelligent conçu pour identifier les fruits et légumes sur des images et fournir un score de fraîcheur. 
 
