@@ -30,7 +30,8 @@ Toutes ces différentes parties sont liées par une interface graphique, dévelo
 
 ### Diagrammes
 
-![SetupDiagram](https://github.com/Phoenesis/LegumiStar/assets/23200652/d9cb39f8-b99a-4ede-beaa-6f1b206df691)
+![DiagrammeSetup](https://github.com/Phoenesis/LegumiStar/assets/23200652/a46254ee-77e8-4ab8-b794-7e5b1b49f4ca)
+
 
 ![diagrammeSonore](https://github.com/Phoenesis/LegumiStar/assets/23200652/9f509651-1da8-499e-bfe9-1571f1ab7568)
 
