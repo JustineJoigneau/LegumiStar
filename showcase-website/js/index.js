@@ -8,9 +8,9 @@ var dataIndexPage = {
         { id: 5, name: "Zoé", edition: "12 janvier 2036", srcImage: "./img/banana-without-bg.png" },
     ],
     stars: [
-        { id: 0, src: "./icons/star-solid.svg", alt: "star-full" },
-        { id: 1, src: "./icons/star-half-stroke-regular.svg", alt: "star-mid" },
-        { id: 2, src: "./icons/star-regular.svg", alt: "star-empty" },
+        { id: 0, src: "./icon/star-solid.svg", alt: "star-full" },
+        { id: 1, src: "./icon/star-half-stroke-regular.svg", alt: "star-mid" },
+        { id: 2, src: "./icon/star-regular.svg", alt: "star-empty" },
     ],
     opinions: [
         {
